@@ -1,0 +1,15 @@
+{
+    "name": "nickel715/clitable",
+    "description": "Lib for printing tables in CLI",
+    "homepage" : "https://github.com/nickel715/CLITable",
+    "type": "library",
+    "version": "0.1.0",
+    "authors": [
+        {
+            "name": "Nicolas Hohm"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "CLITable": "src/" }
+    }
+}
