@@ -20,6 +20,13 @@ class Table
     protected $data;
 
     /**
+     * Max table rows, 0 means unlimited
+     *
+     * @var integer
+     */
+    protected $rowLimit = 0;
+
+    /**
      * Col width for every column
      *
      * @var int
@@ -50,6 +57,10 @@ class Table
         return $this;
     }
 
+    public function setRowLimit($limit) {
+        $this->rowLimit = $limit;
+    }
+
     /**
      * Print the table
      */
@@ -58,10 +69,11 @@ class Table
         $this->printHeadline();
 
         // Go for it
+        $i = 0;
 
         do {
 
-            $valid = false;
+            $valid  = false;
             $output = '| ';
 
             foreach ($this->data AS $col) {
@@ -84,6 +96,9 @@ class Table
 
             if ($valid)
                 echo $output, PHP_EOL;
+
+            if ($this->rowLimit > 0 && ++$i > $this->rowLimit)
+                $valid = false;
 
         } while ($valid);
 
