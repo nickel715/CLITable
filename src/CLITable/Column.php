@@ -56,6 +56,7 @@ class Column extends \ArrayObject {
 
     public function setSize($size) {
         $this->size = $size;
+        return $this;
     }
 
     public function getSize() {
